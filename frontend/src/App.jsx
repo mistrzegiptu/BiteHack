@@ -1,13 +1,10 @@
-
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import ProductGrid from './ProductGrid';
 import React from 'react';
-import { Routes, Route, useParams } from 'react-router-dom'; // Import routera
+import { Routes, Route, useParams } from 'react-router-dom';
 import Header from './Header';
-
+import ProductPage from './ProductPage';
 
 // --- PROSTE KOMPONENTY (STRONY) ---
 // Normalnie trzymałbyś je w osobnych plikach, ale na Hackathon wrzucam tu dla szybkości
@@ -58,11 +55,11 @@ function App() {
       {/* Tutaj decydujemy co wyświetlić pod nagłówkiem */}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        
         {/* :nazwaKategorii to zmienna - złapie cokolwiek wpiszesz po ukośniku */}
         <Route path="/kategoria/:nazwaKategorii" element={<CategoryPage />} />
         <Route path="/koszyk" element={<CartPage />} />
         <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/produkt/:productId" element={<ProductPage />} />
       </Routes>
 
     </div>
