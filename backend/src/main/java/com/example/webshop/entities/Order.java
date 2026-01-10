@@ -13,9 +13,15 @@ public class Order {
     @Column(name = "order_id")
     private UUID id;
 
-    @Column(name = "user_id")
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
     private List<OrderDetail> orders;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
+
 
     @Column(name = "total_price")
     private BigDecimal totalPrice;
