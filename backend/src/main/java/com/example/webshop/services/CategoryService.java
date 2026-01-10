@@ -29,12 +29,24 @@ public class CategoryService {
         return categories.getFirst();
     }
 
-    public boolean categoryExists(String name) {
+    private boolean categoryExists(String name) {
         List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
                 .setParameter("name",name)
                 .getResultList();
 
         return !categories.isEmpty();
+    }
+
+    public Category getCategoryIfExists(String name) {
+        if (categoryExists(name)) {
+            List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
+                    .setParameter("name",name)
+                    .getResultList();
+
+            return categories.getFirst();
+        }
+
+        return null;
     }
 
     @Transactional
