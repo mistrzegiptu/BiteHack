@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,7 +20,7 @@ public class Product {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    private Categories category;
+    private Category category;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -41,7 +40,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, Categories category, BigDecimal price, long amount, String imagePath) {
+    public Product(String name, Category category, BigDecimal price, long amount, String imagePath) {
         this.name = name;
         this.category = category;
         this.price = price;
@@ -55,7 +54,7 @@ public class Product {
         this.name = name;
     }
 
-    public void setCategory(Categories category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -87,7 +86,7 @@ public class Product {
         return name;
     }
 
-    public Categories getCategory() {
+    public Category getCategory() {
         return category;
     }
 

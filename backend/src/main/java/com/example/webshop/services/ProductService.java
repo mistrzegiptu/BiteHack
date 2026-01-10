@@ -1,13 +1,9 @@
 package com.example.webshop.services;
 
-import com.example.webshop.entities.Categories;
+import com.example.webshop.entities.Category;
 import com.example.webshop.entities.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -89,7 +85,7 @@ public class ProductService {
 
     @Transactional
     public void addProduct(String name, String categoryName, BigDecimal price, long amount, String imagePath) {
-        List<Categories> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Categories.class)
+        List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
                 .setParameter("name",categoryName)
                 .getResultList();
 
