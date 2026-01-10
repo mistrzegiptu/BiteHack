@@ -84,17 +84,19 @@ public class ProductService {
     }
 
     @Transactional
-    public void addProduct(String name, String categoryName, BigDecimal price, long amount, String imagePath) {
+    public Product addProduct(String name, String categoryName, BigDecimal price, long amount, String imagePath) {
         List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
                 .setParameter("name",categoryName)
                 .getResultList();
 
         if (categories.isEmpty()) {
-            return;
+            return null;
         }
 
         Product newProduct = new Product(name,categories.getFirst(), price, amount, imagePath);
         entityManager.persist(newProduct);
+
+        return newProduct;
     }
 
     @Transactional

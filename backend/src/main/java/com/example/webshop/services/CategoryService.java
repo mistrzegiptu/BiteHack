@@ -50,12 +50,14 @@ public class CategoryService {
     }
 
     @Transactional
-    public void createCategory(String name) {
+    public Category createCategory(String name) {
         if (categoryExists(name)) {
-            return;
+            return null;
         }
 
         Category category = new Category(name);
         entityManager.persist(category);
+
+        return category;
     }
 }
