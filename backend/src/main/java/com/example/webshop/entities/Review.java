@@ -28,6 +28,13 @@ public class Review {
     public Review() {
     }
 
+    public Review(Product product, int rating, String text) {
+        this.product = product;
+        this.rating = rating;
+        this.text = text;
+        this.isDeleted=false;
+    }
+
     public UUID getReviewId() {
         return reviewId;
     }

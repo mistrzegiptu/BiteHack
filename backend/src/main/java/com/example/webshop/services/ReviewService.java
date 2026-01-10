@@ -1,5 +1,6 @@
 package com.example.webshop.services;
 
+import com.example.webshop.DTO.AddReviewDTO;
 import com.example.webshop.entities.Product;
 import com.example.webshop.entities.Review;
 import jakarta.persistence.EntityManager;
@@ -55,7 +56,14 @@ public class ReviewService {
     }
 
     @Transactional
-    public void addReview() {
+    public void addReview(AddReviewDTO addReviewDTO) {
+        List<Product> products = entityManager.createQuery("select p from Product p where p.productId=:productId")
+                .setParameter("productId", addReviewDTO.productId())
+                .getResultList();
 
+        if (!products.isEmpty()) {
+            Review review = new Review(products.getFirst(), addReviewDTO.rating(), addReviewDTO.text());
+            entityManager.persist(review);
+        }
     }
 }
