@@ -15,6 +15,10 @@ public class Order {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
     private List<OrderDetail> orders;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -39,6 +43,10 @@ public class Order {
 
     public BigDecimal getTotalPrice() {
         return totalPrice;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public void setOrders(List<OrderDetail> orders) {

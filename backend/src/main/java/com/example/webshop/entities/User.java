@@ -2,6 +2,8 @@ package com.example.webshop.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,7 +14,7 @@ public class User {
     @Column(name = "user_id")
     private UUID id;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Order> orders;
 
     @Column(name = "firstname")
@@ -97,6 +99,10 @@ public class User {
 
     public String getPasswordHash() {
         return passwordHash;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     public void setFirstname(String firstname) {

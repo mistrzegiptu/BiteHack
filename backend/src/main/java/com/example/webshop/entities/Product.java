@@ -3,6 +3,7 @@ package com.example.webshop.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
 import java.util.UUID;
@@ -38,6 +39,16 @@ public class Product {
     private String imagePath;
 
     public Product() {
+    }
+
+    public Product(String name, Categories category, BigDecimal price, long amount, String imagePath) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.amount = amount;
+        this.imagePath = imagePath;
+        this.isDeleted=false;
+        this.reviews = new ArrayList<>();
     }
 
     public void setName(String name) {
