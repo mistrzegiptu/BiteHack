@@ -50,6 +50,19 @@ public class CategoryService {
     }
 
     @Transactional
+    public void createCategory(String name) {
+        if (categoryExists(name)) {
+            List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
+                    .setParameter("name",name)
+                    .getResultList();
+
+            return categories.getFirst();
+        }
+
+        return null;
+    }
+
+    @Transactional
     public Category createCategory(String name) {
         if (categoryExists(name)) {
             return null;
