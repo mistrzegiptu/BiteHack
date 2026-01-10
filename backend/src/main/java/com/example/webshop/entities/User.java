@@ -7,6 +7,20 @@ import java.util.UUID;
 
 @Entity(name = "Users")
 public class User {
+    public User(String firstname, String lastname, String country, String city, String street, String postalNumber, String phoneNumber, boolean isAdmin, String mail, String login, String passwordHash) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.postalNumber = postalNumber;
+        this.phoneNumber = phoneNumber;
+        this.isAdmin = isAdmin;
+        this.mail = mail;
+        this.login = login;
+        this.passwordHash = passwordHash;
+    }
+
     @Id
     @GeneratedValue
     @Column(name = "user_id")

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Entity(name = "order_details")
+@Entity(name = "OrderDetails")
 public class OrderDetail {
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
