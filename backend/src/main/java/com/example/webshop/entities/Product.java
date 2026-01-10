@@ -25,13 +25,10 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "currency")
-    private Currency currency;
-
     @Column(name = "amount")
     private long amount;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Product")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private List<Review> reviews;
 
     @Column(name = "is_deleted")
@@ -53,10 +50,6 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
     }
 
     public void setAmount(long amount) {
@@ -89,10 +82,6 @@ public class Product {
 
     public BigDecimal getPrice() {
         return price;
-    }
-
-    public Currency getCurrency() {
-        return currency;
     }
 
     public long getAmount() {
