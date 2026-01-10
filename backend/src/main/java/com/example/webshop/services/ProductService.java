@@ -88,16 +88,8 @@ public class ProductService {
     }
 
     @Transactional
-    public void addProduct(String name, String categoryName, BigDecimal price, long amount, String imagePath) {
-        List<Categories> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Categories.class)
-                .setParameter("name",categoryName)
-                .getResultList();
-
-        if (categories.isEmpty()) {
-            throw new IllegalArgumentException("Category has not been found");
-        }
-
-        Product newProduct = new Product(name,categories.getFirst(), price, amount, imagePath);
+    public void addProduct(String name, Categories category, BigDecimal price, long amount, String imagePath) { //TODO: Refractor
+        Product newProduct = new Product(name,category, price, amount, imagePath);
         entityManager.persist(newProduct);
     }
 
