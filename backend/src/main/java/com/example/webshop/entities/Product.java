@@ -1,0 +1,102 @@
+package com.example.webshop.entities;
+
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
+import java.util.Currency;
+import java.util.List;
+import java.util.UUID;
+
+@Entity(name = "Product")
+public class Product {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "product_id")
+    private UUID productId;
+
+    @Column(name = "name")
+    private String name;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Categories category;
+
+    @Column(name = "price")
+    private BigDecimal price;
+
+    @Column(name = "amount")
+    private long amount;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Review> reviews;
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted;
+
+    @Column(name = "image_path")
+    private String imagePath;
+
+    public Product() {
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setAmount(long amount) {
+        this.amount = amount;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public UUID getProductId() {
+        return productId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+}
