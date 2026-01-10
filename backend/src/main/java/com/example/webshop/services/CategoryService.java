@@ -1,6 +1,15 @@
 package com.example.webshop.services;
 
+import com.example.webshop.entities.Category;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
+@Service
 public class CategoryService {
     @PersistenceContext
     EntityManager entityManager;

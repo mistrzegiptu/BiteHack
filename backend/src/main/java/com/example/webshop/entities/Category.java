@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.UUID;
 
 @Entity(name = "Categories")
-public class Categories {
+public class Category {
 
     @Id
     @GeneratedValue
@@ -18,7 +18,11 @@ public class Categories {
     @Column(name = "name")
     private String name;
 
-    public Categories() {
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
     }
 
     public UUID getCategoryId() {
