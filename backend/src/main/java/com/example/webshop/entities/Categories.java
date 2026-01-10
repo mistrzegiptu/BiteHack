@@ -1,0 +1,35 @@
+package com.example.webshop.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+import java.util.UUID;
+
+@Entity(name = "Categories")
+public class Categories {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "category_id")
+    private UUID categoryId;
+
+    @Column(name = "name")
+    private String name;
+
+    public Categories() {
+    }
+
+    public UUID getCategoryId() {
+        return categoryId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
