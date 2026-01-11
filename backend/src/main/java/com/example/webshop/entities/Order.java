@@ -27,7 +27,10 @@ public class Order {
     @Column(name = "order_date_time")
     private LocalDateTime orderDateTime;
 
-    public Order() {
+    public Order(User user, BigDecimal totalPrice, LocalDateTime orderDateTime) {
+        this.user = user;
+        this.totalPrice = totalPrice;
+        this.orderDateTime = orderDateTime;
     }
 
     public UUID getId() {
@@ -52,5 +55,13 @@ public class Order {
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public LocalDateTime getOrderDateTime() {
+        return orderDateTime;
+    }
+
+    public void setOrderDateTime(LocalDateTime orderDateTime) {
+        this.orderDateTime = orderDateTime;
     }
 }
