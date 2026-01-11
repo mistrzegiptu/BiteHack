@@ -9,6 +9,7 @@ import WishlistPage from './WishlistPage';
 import LoginPage from './LoginPage';
 import ProfilePage from './ProfilePage';
 import productImg from "./assets/product.png"; 
+import GeminiChat from "./GeminiChat.jsx"
 
 const HomePage = () => (
   <div style={{ padding: '20px', textAlign: 'center' }}>
@@ -31,6 +32,7 @@ const ShopPage = ({searchTerm}) => (
   <div>
     <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Pełna Oferta</h2>
     <ProductGrid searchTerm={searchTerm} />
+    <GeminiChat />
   </div>
 );
 
