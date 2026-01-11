@@ -7,9 +7,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name = "Users")
+@Entity(name = "User")
 public class User {
-    public User(String firstname, String lastname, String country, String city, String street, String postalNumber, String phoneNumber, boolean isAdmin, String mail, String login, String passwordHash) {
+    public User(String firstname, String lastname, String country, String city, String street, String postalNumber, String phoneNumber, String mail, String login, String passwordHash) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.country = country;
@@ -17,7 +17,7 @@ public class User {
         this.street = street;
         this.postalNumber = postalNumber;
         this.phoneNumber = phoneNumber;
-        this.isAdmin = isAdmin;
+        this.isAdmin = false;
         this.mail = mail;
         this.login = login;
         this.passwordHash = passwordHash;
