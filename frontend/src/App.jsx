@@ -11,6 +11,7 @@ import ProfilePage from './ProfilePage';
 import ContactPage from './ContactPage'; // <--- NOWY IMPORT
 import productImg from "./assets/product.png"; 
 import GeminiChat from "./GeminiChat.jsx"
+import { node } from 'prop-types';
 
 const HomePage = () => (
   <div style={{ padding: '20px', textAlign: 'center' }}>
@@ -59,10 +60,9 @@ function App() {
 
   // 2. STAN UŻYTKOWNIKA
   const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("myUser");
+    const savedUser = sessionStorage.getItem("myUser");
     return savedUser
-      ? JSON.parse(savedUser)
-      : { id: 1, name: "Default User", email: "default@example.com" }; 
+      ? JSON.parse(savedUser) : null; 
   });
 
   // --- EFEKTY ---
@@ -72,7 +72,7 @@ function App() {
   
   useEffect(() => {
     if (user) {
-      localStorage.setItem("myUser", JSON.stringify(user));
+      sessionStorage.setItem("myUser", JSON.stringify(user));
     } else {
       localStorage.removeItem("myUser");
     }

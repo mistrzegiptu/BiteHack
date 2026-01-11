@@ -1,5 +1,5 @@
 package com.example.webshop.entities;
-
+import org.hibernate.annotations.GenericGenerator;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name = "User")
+@Entity(name = "Users")
 public class User {
     public User(String firstname, String lastname, String country, String city, String street, String postalNumber, String phoneNumber, String mail, String login, String passwordHash) {
         this.firstname = firstname;
@@ -24,8 +24,9 @@ public class User {
     }
 
     @Id
-    @GeneratedValue
-    @Column(name = "user_id")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "user_id", updatable = false, nullable = false)
     private UUID id;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
