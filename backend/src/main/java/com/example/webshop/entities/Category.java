@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 
 import java.util.UUID;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity(name = "Category")
 public class Category {
 
