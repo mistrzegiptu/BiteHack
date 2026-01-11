@@ -33,6 +33,10 @@ public class Order {
         this.orderDateTime = orderDateTime;
     }
 
+    public Order() {
+
+    }
+
     public UUID getId() {
         return id;
     }
