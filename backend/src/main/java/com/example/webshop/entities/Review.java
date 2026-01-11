@@ -25,13 +25,18 @@ public class Review {
     @Column(name = "is_deleted")
     private boolean isDeleted;
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
     public Review() {
     }
 
-    public Review(Product product, int rating, String text) {
+    public Review(Product product, int rating, String text, String login) {
         this.product = product;
         this.rating = rating;
         this.text = text;
+
         this.isDeleted=false;
     }
 
@@ -49,6 +54,10 @@ public class Review {
 
     public String getText() {
         return text;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public boolean isDeleted() {

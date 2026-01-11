@@ -64,6 +64,9 @@ public class User {
     @Column(name = "password_hash")
     private String passwordHash;
 
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
+
     public User() {
     }
 
