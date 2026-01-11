@@ -17,11 +17,11 @@ public class UserService {
     private EntityManager entityManager;
 
     public List<User> getAllUsers() {
-        return entityManager.createQuery("from User", User.class).getResultList();
+        return entityManager.createQuery("from Users", User.class).getResultList();
     }
 
     public User getUserByLogin(String login) {
-        List<User> users = entityManager.createQuery("select u from User u where u.login=:login",User.class)
+        List<User> users = entityManager.createQuery("select u from Users u where u.login=:login",User.class)
                 .setParameter("login", login)
                 .getResultList();
 
