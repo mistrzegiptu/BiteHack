@@ -24,7 +24,7 @@ public class ProductService {
     }
 
     public Product getProductByName(String name) {
-        List<Product> products = entityManager.createQuery("select p from Product p where contains(p.name, :productName) and p.isDeleted==false", Product.class)
+        List<Product> products = entityManager.createQuery("select p from Product p where contains(p.name, :productName) and p.isDeleted=false", Product.class)
                 .setParameter("productName", name)
                 .getResultList();
 
@@ -36,22 +36,22 @@ public class ProductService {
     }
 
     public List<Product> getSortedByName() {
-        return entityManager.createQuery("select p from Product p where p.isDeleted==false order by p.name", Product.class)
+        return entityManager.createQuery("select p from Product p where p.isDeleted=false order by p.name", Product.class)
                 .getResultList();
     }
 
     public List<Product> getSortedByPrice() {
-        return entityManager.createQuery("select p from Product p where p.isDeleted==false order by p.price", Product.class)
+        return entityManager.createQuery("select p from Product p where p.isDeleted=false order by p.price", Product.class)
                 .getResultList();
     }
 
     public List<Product> getSortedByAmount() {
-        return entityManager.createQuery("select p from Product p where p.isDeleted==false order by p.amount", Product.class)
+        return entityManager.createQuery("select p from Product p where p.isDeleted=false order by p.amount", Product.class)
                 .getResultList();
     }
 
     public List<Product> getFilteredByCategory(String categoryName) {
-        return entityManager.createQuery("select p from Product p where p.isDeleted==false and p.category==:category", Product.class)
+        return entityManager.createQuery("select p from Product p where p.isDeleted=false and p.category==:category", Product.class)
                 .setParameter("category", categoryName)
                 .getResultList();
     }
@@ -79,13 +79,13 @@ public class ProductService {
     }
 
     public List<Product> showDeleted() {
-        return entityManager.createQuery("select p from Product p where p.isDeleted==true")
+        return entityManager.createQuery("select p from Product p where p.isDeleted=true")
                 .getResultList();
     }
 
     @Transactional
     public Product addProduct(String name, String categoryName, BigDecimal price, long amount, String imagePath) {
-        List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
+        List<Category> categories = entityManager.createQuery("select c from Category c where c.name=:name", Category.class)
                 .setParameter("name",categoryName)
                 .getResultList();
 
@@ -93,7 +93,7 @@ public class ProductService {
             return null;
         }
 
-        Product newProduct = new Product(name,categories.getFirst(), price, amount, imagePath);
+        Product newProduct = new Product(name, categories.getFirst(), price, amount, imagePath);
         entityManager.persist(newProduct);
 
         return newProduct;
