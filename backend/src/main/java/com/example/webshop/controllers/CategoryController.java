@@ -20,6 +20,7 @@ public class CategoryController {
 
     @PostMapping("/add")
     public ResponseEntity<Category> addCategory(@RequestBody String categoryName) {
+        categoryName = categoryName.replace("\"", "").replace("'", "").trim();
         Category category = categoryService.createCategory(categoryName);
 
         return ResponseEntity.ok(category);

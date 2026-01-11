@@ -18,7 +18,7 @@ public class CategoryService {
     }
 
     public Category getCategoryById(UUID id) {
-        List<Category> categories = entityManager.createQuery("select c from Categories c where c.id=:id", Category.class)
+        List<Category> categories = entityManager.createQuery("select c from Category c where c.id=:id", Category.class)
                 .setParameter("id", id)
                 .getResultList();
 
@@ -30,7 +30,7 @@ public class CategoryService {
     }
 
     private boolean categoryExists(String name) {
-        List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
+        List<Category> categories = entityManager.createQuery("select c from Category c where c.name=:name", Category.class)
                 .setParameter("name",name)
                 .getResultList();
 
@@ -39,20 +39,7 @@ public class CategoryService {
 
     public Category getCategoryIfExists(String name) {
         if (categoryExists(name)) {
-            List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
-                    .setParameter("name",name)
-                    .getResultList();
-
-            return categories.getFirst();
-        }
-
-        return null;
-    }
-
-    @Transactional
-    public void createCategory(String name) {
-        if (categoryExists(name)) {
-            List<Category> categories = entityManager.createQuery("select c from Categories c where c.name=:name", Category.class)
+            List<Category> categories = entityManager.createQuery("select c from Category c where c.name=:name", Category.class)
                     .setParameter("name",name)
                     .getResultList();
 
