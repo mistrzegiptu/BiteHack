@@ -1,6 +1,7 @@
 package com.example.webshop.entities;
 
 import jakarta.persistence.*;
+import org.apache.logging.log4j.util.Lazy;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -30,9 +31,6 @@ public class User {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Order> orders;
-
-    @OneToOne(mappedBy = "user")
-    private User user;
 
     @Column(name = "firstname")
     private String firstname;
@@ -102,10 +100,6 @@ public class User {
         return phoneNumber;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public boolean isAdmin() {
         return isAdmin;
     }
@@ -172,9 +166,5 @@ public class User {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }
