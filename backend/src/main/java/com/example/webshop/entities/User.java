@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name = "User")
+@Entity(name = "Users")
 public class User {
     public User(String firstname, String lastname, String country, String city, String street, String postalNumber, String phoneNumber, String mail, String login, String passwordHash) {
         this.firstname = firstname;

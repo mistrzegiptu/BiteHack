@@ -17,11 +17,11 @@ public class UserService {
     private EntityManager entityManager;
 
     public List<User> getAllUsers() {
-        return entityManager.createQuery("from User", User.class).getResultList();
+        return entityManager.createQuery("from Users", User.class).getResultList();
     }
 
     public User getUserByLogin(String login) {
-        List<User> users = entityManager.createQuery("select u from User u where u.login=:login",User.class)
+        List<User> users = entityManager.createQuery("select u from Users u where u.login=:login",User.class)
                 .setParameter("login", login)
                 .getResultList();
 
@@ -50,9 +50,18 @@ public class UserService {
 
         return null;
     }
+    
+    private boolean doesLoginExist(String login) {
+        List<User> users = entityManager.createQuery("select u from Users u where u.login=:login", User.class)
+                .setParameter("login",login)
+                .getResultList();
 
-    public User updateUser(UserUpdateDTO dto) {
-        User user = getUserByLogin(dto.login());
+        return !users.isEmpty();
+    }
+
+    @Transactional
+    public User updateUser(String login, UserUpdateDTO dto) {
+        User user = getUserByLogin(login);
 
         if (user == null) {
             return null;
@@ -83,7 +92,7 @@ public class UserService {
         if (dto.mail() != null) {
             user.setMail(dto.mail());
         }
-        if (dto.login() != null) {
+        if (dto.login() != null && !doesLoginExist(dto.login())) {
             user.setLogin(dto.login());
         }
 
