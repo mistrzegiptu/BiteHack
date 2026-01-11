@@ -25,13 +25,18 @@ public class Review {
     @Column(name = "is_deleted")
     private boolean isDeleted;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Review() {
     }
 
-    public Review(Product product, int rating, String text) {
+    public Review(Product product, int rating, String text, User user) {
         this.product = product;
         this.rating = rating;
         this.text = text;
+        this.user = user;
         this.isDeleted=false;
     }
 
@@ -49,6 +54,10 @@ public class Review {
 
     public String getText() {
         return text;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public boolean isDeleted() {
@@ -69,5 +78,9 @@ public class Review {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
