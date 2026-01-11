@@ -1,0 +1,110 @@
+/* GŁÓWNY KONTENER */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+/* LEWA STRONA */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase; /* To sprawia, że litery są DUŻE automatycznie */
+}
+
+/* Zwykły link */
+.link-regular {
+  color: #000;
+}
+
+/* Wyróżniony link (np. wyprzedaż) */
+.link-special {
+  color: #d32f2f; /* Czerwony */
+}
+
+/* PRAWA STRONA */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.search-bar {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 180px;
+}
+
+.icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: #111;
+}
+
+.user-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-wrapper {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: blue;
+  color: white;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kropka online dla użytkownika */
+.badge-online {
+  position: absolute;
+  bottom: -2px; /* Na dole ikony */
+  right: -2px;
+  background-color: #00c851; /* Soczysta zieleń */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white; /* Biała obwódka żeby się odcinało */
+}

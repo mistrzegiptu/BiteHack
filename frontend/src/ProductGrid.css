@@ -1,0 +1,86 @@
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ZMIANA: Zamiast 'div', używamy konkretnej klasy, żeby nie psuć Selecta */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters-header span {
+  font-weight: bold;
+  color: #333;
+}
+
+.filters-header button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.filters-header button:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+
+.sort-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.sort-btn.active {
+  background-color: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+/* --- PAGINACJA (STRONY) --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.page-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.page-btn.active {
+  background-color: #000;
+  color: white;
+  border-color: #000;
+}
+
+.page-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  border-color: #eee;
+}

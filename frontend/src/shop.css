@@ -1,0 +1,47 @@
+.product-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  width: 150px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 4px;
+}
+.product-card .columnName {
+  float: left;
+  width: 33.33%;
+}
+.product-card .columnPrice {
+  float: right;
+  width: 40%;
+}
+
+.product-card h3 {
+  font-size: 17px;
+  margin: 8px 0;
+}
+
+.product-card p {
+  font-weight: bold;
+}
+
+.product-grid {
+  display: grid;
+
+  /* ilość kolumn */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  /* gutter (odstępy między kartami) */
+  gap: 24px;
+
+  /* padding kontenera */
+  padding: 32px;
+
+  /* górny / dolny margines całej sekcji */
+  margin: 40px auto;
+
+  /* opcjonalnie: max szerokość strony */
+  max-width: 1200px;
+}

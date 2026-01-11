@@ -1,0 +1,172 @@
+.product-page {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.product-image img {
+  width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin: 20px;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.product-details h1 {
+  margin-bottom: 10px;
+}
+
+.category {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.in-stock {
+  color: green;
+  margin-bottom: 20px;
+}
+
+.out-of-stock {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  margin-bottom: 20px;
+}
+
+.quantity input {
+  width: 80px;
+  padding: 6px;
+  margin-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.add-to-cart {
+  background-color: #000;
+  color: #fff;
+}
+
+.add-to-cart:hover {
+  background-color: #333;
+}
+
+.add-to-favorites {
+  background-color: #eee;
+}
+
+.add-to-favorites:hover {
+  background-color: #ddd;
+}
+.star-rating .star {
+  color: lightgray;
+  font-size: 30px;
+}
+
+.star-rating .star.filled {
+  color: gold;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.comments-section {
+  margin-top: 40px;
+    z-index: 2;
+}
+
+.comments-section textarea {
+  width: 100%;
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+.product-section {
+  display: flex;
+  flex-direction: row;
+}
+
+/* --- MODAL (Okienko potwierdzenia) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Żeby było nad wszystkim */
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-box h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-continue {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.btn-continue:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-cart {
+  background-color: #000;
+  color: white;
+}
+
+.btn-cart:hover {
+  background-color: #333;
+}

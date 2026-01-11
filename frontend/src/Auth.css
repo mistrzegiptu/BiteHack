@@ -1,0 +1,124 @@
+/* Kontener na środek ekranu */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f8f9fa;
+  flex-direction: column;
+}
+
+.auth-box {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ważne, żeby padding nie rozpychał */
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-btn:hover {
+  background-color: #333;
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.toggle-text span {
+  color: #0000ee;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* --- Style Profilu --- */
+.profile-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.profile-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.profile-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.logout-btn {
+  background-color: #dc0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.orders-list {
+  list-style: none;
+  padding: 0;
+}
+
+.orders-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.status-done { color: green; font-weight: bold; font-size: 12px; }
+.status-pending { color: orange; font-weight: bold; font-size: 12px; }
